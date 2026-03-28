@@ -1,9 +1,12 @@
 {
-  "name": "hello",
+  "name": "foodrush",
   "version": "1.0.0",
-  "description": "namaste react",
+  "description": "A personal Swiggy food delivery clone with live data, personalised recommendations, cart, and order history",
   "keywords": [
-    "react"
+    "react",
+    "swiggy",
+    "food-delivery",
+    "tailwind"
   ],
   "license": "ISC",
   "author": "Lavish Tyagi",
@@ -11,7 +14,8 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "test": "jest"
+    "test": "jest",
+    "server": "node proxy.js"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",
@@ -22,10 +26,10 @@
     "tailwindcss": "^3.4.19"
   },
   "dependencies": {
+    "express": "^5.2.1",
     "node-fetch": "^3.3.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router": "^7.9.6",
     "react-router-dom": "^6.28.0"
   },
   "browserslist": [

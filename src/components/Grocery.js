@@ -37,14 +37,13 @@ const Grocery = () => {
       {successNudge && (
         <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 p-4 rounded-2xl mb-8 shadow-sm">
           <div className="flex justify-between items-center mb-2">
-            <span 
-              className="text-green-800 font-semibold text-lg" 
-              dangerouslySetInnerHTML={{ __html: successNudge.text }} 
-            />
+            <span className="text-green-800 font-semibold text-lg">
+              <strong>{successNudge.highlight}</strong> {successNudge.suffix}
+            </span>
             <span className="text-2xl">🚚</span>
           </div>
           <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
-            <div 
+            <div
               className="bg-green-500 h-full transition-all duration-1000"
               style={{ width: `${successNudge.progressiveBarPercentage}%` }}
             />
@@ -56,17 +55,23 @@ const Grocery = () => {
       {/* Brand Offers Section */}
       <div className="grid gap-4">
         <h3 className="text-gray-400 font-bold text-xs uppercase tracking-widest">Available Brand Discounts</h3>
-        {Object.entries(offers).map(([id, offer]) => (
-          <div key={id} className="flex items-center gap-4 p-4 border border-gray-100 rounded-xl hover:shadow-md transition-shadow bg-gray-50">
-            <div className="bg-orange-100 p-2 rounded-lg">
-              <span className="text-orange-600">🏷️</span>
+        {Object.entries(offers).map(([id, offer]) => {
+          const parts = offer.highlight
+            ? offer.text.split("{highlight}")
+            : [offer.text];
+          return (
+            <div key={id} className="flex items-center gap-4 p-4 border border-gray-100 rounded-xl hover:shadow-md transition-shadow bg-gray-50">
+              <div className="bg-orange-100 p-2 rounded-lg">
+                <span className="text-orange-600">🏷️</span>
+              </div>
+              <p className="text-gray-700 text-sm font-medium">
+                {parts[0]}
+                {offer.highlight && <strong>{offer.highlight}</strong>}
+                {parts[1]}
+              </p>
             </div>
-            <p 
-              className="text-gray-700 text-sm font-medium"
-              dangerouslySetInnerHTML={{ __html: offer.text }}
-            />
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Footer Info */}

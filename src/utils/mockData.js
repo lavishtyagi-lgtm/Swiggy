@@ -6,14 +6,15 @@ export const MOCK_GROCERY_DATA = {
       comms: {
         nudgeComms: {
           success: {
-            text: "<b>FREE DELIVERY</b> on orders above ₹49",
+            highlight: "FREE DELIVERY",
+            suffix: "on orders above ₹49",
             progressiveBarPercentage: 40,
           }
         },
         couponlessOffersComms: {
-          "1": { text: "Add Air Purifier items worth ₹1 more to avail this offer" },
-          "2": { text: "Unlock <b>FLAT 5% OFF</b> on Arata items" },
-          "3": { text: "Unlock <b>FLAT ₹50 OFF</b> on Huggies items" }
+          "1": { highlight: null, text: "Add Air Purifier items worth ₹1 more to avail this offer" },
+          "2": { highlight: "FLAT 5% OFF", text: "Unlock {highlight} on Arata items" },
+          "3": { highlight: "FLAT ₹50 OFF", text: "Unlock {highlight} on Huggies items" }
         }
       },
       pharmaCart: false

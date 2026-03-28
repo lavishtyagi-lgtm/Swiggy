@@ -1,3 +1,22 @@
-/node_modules
-dist
-.parcel-cache
+# Dependencies
+node_modules/
+
+# Parcel build output
+dist/
+.parcel-cache/
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
